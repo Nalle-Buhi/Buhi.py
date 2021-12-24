@@ -549,7 +549,8 @@ class Economy(commands.Cog):
                         ["Majoneesi", "", None],
                         ["Herkkusieni", "", None],
                         ["Ananas", "", None],
-                        ["Amongus", "", None]]
+                        ["Amongus", "", None],
+                        ["Vihreä kuula", "", None]]
 
             for i in toppings:
                 orderlist.append(i[0])
