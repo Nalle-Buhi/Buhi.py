@@ -267,15 +267,15 @@ class Economy(commands.Cog):
         await self.open_account(ctx.author.id)
         balance = await self.check_balance(ctx.author.id)
         if balance < 101:
-            image_url = "https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/ei_raha_apu.jpg"
+            image_url = "https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/ei_raha_apu.jpg"
         elif balance < 1000:
-            image_url = "https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/massimies.jpg"
+            image_url = "https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/massimies.jpg"
         elif balance < 2501:
-            image_url = "https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/raha500stack.png"
+            image_url = "https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/raha500stack.png"
         elif balance <= 10000:
-            image_url = "https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/rahaasataa.jpg"
+            image_url = "https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/rahaasataa.jpg"
         elif balance > 1000:
-            image_url = "https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/massikeisari.png"
+            image_url = "https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/massikeisari.png"
 
         em = await embed_builder(ctx, title="Tilisi tiedot", description=f"Tililläsi on {balance:.2f}ඞ!", image=image_url)
         await ctx.send(embed=em)
@@ -322,7 +322,7 @@ class Economy(commands.Cog):
             fields.append([f'{item[0]}\nHinta: {item[2]}ඞ', item[1], False]) # append items to list where index 0 = item_name, 1 = item_desc, 2 = item_price
             shop_list.append([f'{item[0]}: {item[2]}ඞ', item[1], item[0]]) # append items to list where index 0 = item_id, 1 = item_name, 2 = item_desc, 3 = item_price
         view = uitools.ShopView(ctx, "Valitse tavarat jotka haluat ostaa", 1, len(shop_list), shop_list, True, 60)
-        em = await embed_builder(ctx, "Buhin kauppa", "valikoima saattaa vaihdella, ostaminen: select menun kautta", fields=fields, image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/buhit%C3%B6is.png")
+        em = await embed_builder(ctx, "Buhin kauppa", "valikoima saattaa vaihdella, ostaminen: select menun kautta", fields=fields, image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/buhit%C3%B6is.png")
         sent_em = await ctx.send(embed=em, view=view)
         await sent_em.edit(embed=em)
         await view.wait()
@@ -431,7 +431,7 @@ class Economy(commands.Cog):
             user = leaderboard[place-1]
             member = await self.bot.fetch_user(user[1])
             fields.append([f'{place}: {member.name}', f"{user[0]}ඞ", False])
-        em = await embed_builder(ctx, "Top 5 serverin rikkaimmat", " ", fields=fields, image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/avatar.png")
+        em = await embed_builder(ctx, "Top 5 serverin rikkaimmat", " ", fields=fields, image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/avatar.png")
         await ctx.send(embed=em)
 
 
@@ -444,7 +444,7 @@ class Economy(commands.Cog):
             check = await self.buhicoin_price("check")
             price = check[0]
             view = uitools.ShopButtons(ctx)
-            em = await embed_builder(ctx, "Buhicoin market:", f"Buhicoinin hinta on: {price}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/buh_coin_better.png")
+            em = await embed_builder(ctx, "Buhicoin market:", f"Buhicoinin hinta on: {price}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/buh_coin_better.png")
             sent_em = await ctx.send(embed=em, view=view)
             await view.wait()
             if view.value == "buy":
@@ -503,7 +503,7 @@ class Economy(commands.Cog):
                 await ctx.send("Et saanut mitään, myy vaikka persettäsi ensi kerralla")
             else:
                 await self.update_balance(ctx.author.id, money_got)
-                em = await embed_builder(ctx, "Kerjäsit rahaa", f"Ja sait rahaa {money_got}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/ei_raha_apu.jpg")
+                em = await embed_builder(ctx, "Kerjäsit rahaa", f"Ja sait rahaa {money_got}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/ei_raha_apu.jpg")
                 await ctx.send(embed=em)
 
     @commands.cooldown(2, 60, commands.BucketType.user)
@@ -522,11 +522,11 @@ class Economy(commands.Cog):
             print(view.value)
             if str(view.value) in delivery_address:
                 earned = random.randint(10, 25)
-                new_em = await embed_builder(ctx, "Toimitit pizzan onnistuneesti", f"Sait pizzan toimituksesta {earned}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/pizza_apu.jpg")
+                new_em = await embed_builder(ctx, "Toimitit pizzan onnistuneesti", f"Sait pizzan toimituksesta {earned}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/pizza_apu.jpg")
                 await self.update_balance(ctx.author.id, earned)
             else:
                 reimbursement = random.randint(20, 30)
-                new_em = await embed_builder(ctx, "Vitun tunari et toimittanut pitsaa", f"Jouduit maksamaan korvauksia {reimbursement}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/suruviha_apu.jpg")
+                new_em = await embed_builder(ctx, "Vitun tunari et toimittanut pitsaa", f"Jouduit maksamaan korvauksia {reimbursement}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/suruviha_apu.jpg")
                 await self.update_balance(ctx.author.id, -reimbursement)
             await sent_em.edit(embed=new_em, view=None)
 
@@ -556,24 +556,24 @@ class Economy(commands.Cog):
                 orderlist.append(i[0])
             order = random.sample(orderlist, random.randint(3,4))
             view = uitools.SelectFromList(ctx, "Valitse pitsan täytteet oikein", 1, len(order), toppings, True,  10)
-            em = await embed_builder(ctx, "Pizzatilaus, tee pizza asiakkaan tilauksen mukaan", f"Tilaus: {', '.join(order)}", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/buhi_pizzeria.png")
+            em = await embed_builder(ctx, "Pizzatilaus, tee pizza asiakkaan tilauksen mukaan", f"Tilaus: {', '.join(order)}", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/buhi_pizzeria.png")
             sent_em = await ctx.send(embed=em, view=view)
             await view.wait()
             if view.values == None: # view.values is none on timeout error
                 reimbursement = random.randint(5, 10)
-                new_em = await embed_builder(ctx, "Et ehtinyt tekemään pizzaa", f"Maksoit asiakkaalle korvauksia myöhästyneestä pizzasta {reimbursement}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/suruviha_apu.jpg")
+                new_em = await embed_builder(ctx, "Et ehtinyt tekemään pizzaa", f"Maksoit asiakkaalle korvauksia myöhästyneestä pizzasta {reimbursement}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/suruviha_apu.jpg")
                 await self.update_balance(ctx.author.id, -reimbursement)
             elif set(order) == set(view.values): #checks if order list and selected values are the same, selected order doesn't matter
                     earned = random.randint(15, 30)
-                    new_em = await embed_builder(ctx, "Teit pizzan asiakkaan tilauksen mukaan!", f"Sait pizzan teosta {earned}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/pizza_apu.jpg")
+                    new_em = await embed_builder(ctx, "Teit pizzan asiakkaan tilauksen mukaan!", f"Sait pizzan teosta {earned}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/pizza_apu.jpg")
                     await self.update_balance(ctx.author.id, earned)
             elif set(order) != set(view.values): #
                 if random.randint(0, 50) == 0:
                     reimbursement = random.randint(50, 100)
-                    new_em = await embed_builder(ctx, "Asiakas oli allerginen tekemällesi pitsalle ja melkein kuoli saatana", f"Maksoit sairaala kuluja {reimbursement}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/suruviha_apu.jpg")
+                    new_em = await embed_builder(ctx, "Asiakas oli allerginen tekemällesi pitsalle ja melkein kuoli saatana", f"Maksoit sairaala kuluja {reimbursement}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/suruviha_apu.jpg")
                 else:
                     reimbursement = random.randint(15, 30)
-                    new_em = await embed_builder(ctx, "Teit väärän pizzan ja asiakas oli vihainen", f"Maksoit korvauksia {reimbursement}ඞ", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/suruviha_apu.jpg")
+                    new_em = await embed_builder(ctx, "Teit väärän pizzan ja asiakas oli vihainen", f"Maksoit korvauksia {reimbursement}ඞ", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/suruviha_apu.jpg")
                 await self.update_balance(ctx.author.id, -reimbursement)
             else:
                 await ctx.send("Paskoin pitsaan")

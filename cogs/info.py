@@ -38,7 +38,7 @@ class Info(commands.Cog):
 
     @commands.command()
     async def source(self, ctx):
-        em = await embed_builder(ctx, "Buhi botin source koodi", "https://github.com/Lerzy/Buh.py", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/source_code.png")
+        em = await embed_builder(ctx, "Buhi botin source koodi", "https://github.com/Nalle-Buhi/Buhi.py", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/source_code.png")
         await ctx.send(embed=em)
 
 

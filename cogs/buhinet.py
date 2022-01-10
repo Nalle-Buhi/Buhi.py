@@ -94,7 +94,7 @@ class Buhinet(commands.Cog):
         result = [item for item in user_items if "Tietokone setup" in item]
         if result:
             view = uitools.ShopButtons(ctx)
-            em = await embed_builder(ctx, "Tervetuloa buhinettiin", "buhinet on buhi botissa oleva peittoverkko, jota voidaan käyttää vain tietyllä ohjelmistolla, kokoonpanoilla tai valtuutuksilla ja joka käyttää usein ainutlaatuista mukautettua viestintäprotokollaa", image="https://raw.githubusercontent.com/Lerzy/Buh.py/main/images/buhnet.png")
+            em = await embed_builder(ctx, "Tervetuloa buhinettiin", "buhinet on buhi botissa oleva peittoverkko, jota voidaan käyttää vain tietyllä ohjelmistolla, kokoonpanoilla tai valtuutuksilla ja joka käyttää usein ainutlaatuista mukautettua viestintäprotokollaa", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/buhnet.png")
             sent_em = await ctx.send(embed=em, view=view)
             await view.wait()
             if view.value == "buy":
