@@ -5,6 +5,7 @@ from io import BytesIO
 import discord
 import asyncio
 
+
 class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,7 +19,9 @@ class Admin(commands.Cog):
                     value = BytesIO(await resp.read()).getvalue()
                     if resp.status in range(200, 299):
                         await ctx.guild.create_custom_emoji(image=value, name=e_name)
-                        em = await embed_builder(ctx, "Emoji lisätty", e_name, image=e_url)
+                        em = await embed_builder(
+                            ctx, "Emoji lisätty", e_name, image=e_url
+                        )
                         await ctx.send(embed=em)
                 except Exception as err:
                     print(err)
@@ -40,6 +43,7 @@ class Admin(commands.Cog):
                 await member.move_to(c)
                 await asyncio.sleep(1)
 """
+
 
 def setup(bot):
     bot.add_cog(Admin(bot))

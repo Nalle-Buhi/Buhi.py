@@ -3,9 +3,12 @@ import random
 from creds import REDDIT_ID, REDDIT_SECRET
 
 
-r = asyncpraw.Reddit(client_id = REDDIT_ID,
-                     client_secret = REDDIT_SECRET,
-                     user_agent = "Buh.py Discord Bot 0.1 by /u/Lerzyy")
+r = asyncpraw.Reddit(
+    client_id=REDDIT_ID,
+    client_secret=REDDIT_SECRET,
+    user_agent="Buh.py Discord Bot 0.1 by /u/Lerzyy",
+)
+
 
 async def get_random(subreddit, ctx):
     if isinstance(subreddit, list):

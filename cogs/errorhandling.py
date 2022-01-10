@@ -6,7 +6,6 @@ class ErrorHandling(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         await ctx.send(f"Nyt meni joku vituiks:\n `{error}`")

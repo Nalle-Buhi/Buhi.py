@@ -11,7 +11,6 @@ class Info(commands.Cog):
         self.tmin = 0
         self.thour = 0
         self.tday = 0
-        
 
     @tasks.loop(seconds=2.0)
     async def uptimeCounter(self):
@@ -25,20 +24,35 @@ class Info(commands.Cog):
                 if self.thour == 24:
                     self.thour = 0
                     self.tday += 1
-    
+
     @uptimeCounter.before_loop
     async def beforeUptimeCounter(self):
         await self.bot.wait_until_ready()
 
     @commands.command()
     async def uptime(self, ctx):
-        fields = [["Päivät:", self.tday, True],["Tunnit:", self.thour, True], ["Minuutit:", self.tmin, True], ["Sekunnit:", self.tsec, True]]
-        em = await embed_builder(ctx, "Botin uptime", "Kuinka pitkään botti on kestänyt hengissä paskomatta alleen", fields=fields)
+        fields = [
+            ["Päivät:", self.tday, True],
+            ["Tunnit:", self.thour, True],
+            ["Minuutit:", self.tmin, True],
+            ["Sekunnit:", self.tsec, True],
+        ]
+        em = await embed_builder(
+            ctx,
+            "Botin uptime",
+            "Kuinka pitkään botti on kestänyt hengissä paskomatta alleen",
+            fields=fields,
+        )
         await ctx.send(embed=em)
 
     @commands.command()
     async def source(self, ctx):
-        em = await embed_builder(ctx, "Buhi botin source koodi", "https://github.com/Nalle-Buhi/Buhi.py", image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/source_code.png")
+        em = await embed_builder(
+            ctx,
+            "Buhi botin source koodi",
+            "https://github.com/Nalle-Buhi/Buhi.py",
+            image="https://raw.githubusercontent.com/Nalle-Buhi/Buhi.py/main/images/source_code.png",
+        )
         await ctx.send(embed=em)
 
 
