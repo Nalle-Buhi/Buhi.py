@@ -25,7 +25,7 @@ class Admin(commands.Cog):
                     await ctx.send("Tiedosto liian iso tai botti on paska")
 
 
-    @commands.command()
+"""    @commands.command()
     @commands.has_permissions(kick_members=True)
     async def slide(self, ctx, member: discord.Member, slide_length, slide_time):
         slide_category = await ctx.guild.create_category(f"{member.name} liukumäki")
@@ -39,7 +39,7 @@ class Admin(commands.Cog):
             for c in slideable:
                 await member.move_to(c)
                 await asyncio.sleep(1)
-
+"""
 
 def setup(bot):
     bot.add_cog(Admin(bot))
